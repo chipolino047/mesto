@@ -143,6 +143,10 @@
     padding-bottom: 22px;
 }
 
+* {
+    outline: 1px solid yellowgreen;
+}
+
 
 
 
