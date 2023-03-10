@@ -120,27 +120,6 @@
     font-size: 18px;
     line-height: 22px;
     color: #FFF;
-    margin: 16px 0 0 0;
-}
-
-.container-plus {
-    max-width: 150px;
-    max-height: 50px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid #FFF;
-    box-sizing: content-box;
-    margin: auto;
-}
-
-.plus {
-    max-width: 22px;
-    max-height: 22px;
-    margin: 14px auto;
-    background: url(../image/plus.png) no-repeat center center;
-    background-size: contain;
-    box-sizing: border-box;
-    padding-bottom: 22px;
 }
 
 
@@ -152,3 +131,6 @@
 
 
 
+* {
+    outline: 1px solid yellowgreen;
+}
