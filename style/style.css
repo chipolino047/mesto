@@ -191,6 +191,9 @@
     line-height: 29px;
     color: #000;
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .element__heart {
@@ -202,7 +205,7 @@
 }
 
 .element__heart:hover {
-    opacity: 0.8;
+    opacity: 0.5;
 }
 
 /* //нужно подумать как сделать сраное сердце чёрным при нажатии
@@ -211,6 +214,82 @@
 }
 */
 
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup__container {
+    height: 100%;
+    max-height: 330px;
+    max-width: 430px;
+    width: 100%;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup__title {
+    max-width: 330px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000;
+    margin: 34px 0 0 36px;
+}
+
+.form {
+    margin: 0;
+    padding: 0;
+}
+
+.form__name {
+    margin: 36px auto 0 auto;
+    padding: 0;
+    max-width: 358px;
+}
+
+.form__text {
+    margin: 0;
+    padding: 0;
+    max-width: 358px;
+    width: 100%;
+}
+
+.form__description {
+    margin: 30px auto 0 auto;
+    padding: 0;
+    max-width: 358px;
+}
+
+.popup__line {
+    border: 1px solid #000;
+    opacity: .2;
+    margin: 13px auto 0 auto;
+}
+
+.form__button {
+    margin: 48px auto 0 auto;
+    font-family: inherit;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+}
 
 
 
