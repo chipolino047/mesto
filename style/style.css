@@ -122,13 +122,100 @@
     font-size: 18px;
     line-height: 22px;
     color: #FFF;
+    margin: 16px 0 0 0;
 }
 
+.container-plus {
+    max-width: 150px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #FFF;
+    box-sizing: content-box;
+    margin: auto;
+}
+
+.plus {
+    max-width: 22px;
+    max-height: 22px;
+    margin: 14px auto;
+    background: url(../image/plus.png) no-repeat center center;
+    background-size: contain;
+    box-sizing: border-box;
+    padding-bottom: 22px;
+}
+
+.elements {
+    max-width: 880px;
+    margin: 51px auto 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-auto-flow: row;
+    grid-auto-rows: 1fr;
+    column-gap: 17px;
+    row-gap: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.element {
+    max-width: 282px;
+    max-height: 361px;
+    background-color: #FFF;
+    border-radius: 10px;
+}
+
+.element__img {
+    max-width: 282px;
+    max-height: 282px;
+    object-fit: contain;
+    object-position: 0 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.element-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 15px 31px 21px;
+}
+
+.element__text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000;
+    margin: 0;
+}
+
+.element__heart {
+    max-width: 22px;
+    max-height: 19px;
+    object-fit: contain;
+    object-position: 0 0;
+    margin: 0;
+}
+
+.element__heart:hover {
+    opacity: 0.8;
+}
+
+/* //нужно подумать как сделать сраное сердце чёрным при нажатии
+.element__heart_active {
+    background-color: #000;
+}
+*/
 
 
 
 
 
 
-
-
+* {
+    outline: 1px solid yellowgreen;
+}
