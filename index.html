@@ -13,7 +13,6 @@
 <body class="page">
     <header class="header">
         <img src="./image/mesto.png" alt="Картинка 'mesto'" class="vector">
-        <div class="line"></div>
     </header>
     <main class="main">
 
@@ -76,23 +75,29 @@
                 </div>
             </div>
         </section>
-        <div id="popup" class="popup">
-            <div class="popup__container popup__opened">
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <form class="form">
-                        <fieldset class="form__name">
-                            <input type="text" class="form__text" placeholder="Введите имя профиля">
-                        </fieldset>
-                        <div class="popup__line"></div>
-                        <fieldset class="form__description">
-                            <input type="text" class="form__text" placeholder="Описание">
-                        </fieldset>
-                        <div class="popup__line"></div>
-                        <button type="submit" class="form__button" value="Сохранить">Сохранить</button>
-                    </form>
+        <div id="popup" class="popup popup__invisible">
+            <div class="popup__container">
+                <div class="popup__container-close">
+                    <div class="popup__close"></div>
+                </div>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="form" name="form">
+                    <fieldset class="form__name">
+                        <input type="text" class="form__text" placeholder="Введите имя профиля" value="Жак-Ив Кусто">
+                    </fieldset>
+                    <fieldset class="form__description">
+                        <input type="text" class="form__text" placeholder="Описание" value="Исследователь океана">
+                    </fieldset>
+                    <button type="submit" class="form__button" value="Сохранить">
+                        <p class="form__button-text">Сохранить</p>
+                    </button>
+                </form>
             </div>
         </div>
     </main>
+    <footer class="footer">
+        <p class="footer__signature">&#9426; 2023 Mesto Russia</p>
+    </footer>
     <script src="./script.js"></script>
 </body>
 
