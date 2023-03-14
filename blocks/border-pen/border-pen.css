@@ -1,0 +1,23 @@
+.border-pen {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #FFF;
+    margin: auto 0 auto 18px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.border-pen:hover {
+    opacity: .6;
+    transition: all .6s ease;
+}
+
+@media screen and (max-width: 673px) {
+    .border-pen {
+        width: 18px;
+        height: 18px;
+    }
+}

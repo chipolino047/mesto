@@ -1,0 +1,14 @@
+.element__heart {
+    width: 22px;
+    height: 19px;
+    margin: 0;
+    background: url(../../../image/heart.png) no-repeat center center;
+    background-size: contain;
+    border: none;
+    padding: 0;
+}
+
+.element__heart:hover {
+    opacity: 0.5;
+    transition: all ease 0.5s;
+}

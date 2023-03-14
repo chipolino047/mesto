@@ -1,0 +1,9 @@
+.form__description {
+    margin: 30px auto 0 auto;
+    padding: 0;
+    max-width: 358px;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: inherit;
+}
