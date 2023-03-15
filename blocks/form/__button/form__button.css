@@ -20,3 +20,10 @@
     opacity: .8;
     transition: all .6s ease;
 }
+
+@media screen and (max-width: 673px) {
+    .form__button {
+        max-width: 238px;
+        margin: 45px auto 25px auto;
+    }
+}

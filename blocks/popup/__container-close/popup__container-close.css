@@ -3,3 +3,9 @@
     justify-content: flex-end;
     margin-right: -40px;
 }
+
+@media screen and (max-width: 673px) {
+    .popup__container-close {
+        max-width: 282px;
+    }
+}

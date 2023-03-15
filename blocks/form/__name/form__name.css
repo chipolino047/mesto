@@ -7,3 +7,9 @@
     box-sizing: border-box;
     font-family: inherit;
 }
+
+@media screen and (max-width: 673px) {
+    .form__name {
+        max-width: 238px;
+    }
+}
