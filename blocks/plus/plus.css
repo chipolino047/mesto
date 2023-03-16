@@ -1,9 +1,0 @@
-.plus {
-    max-width: 22px;
-    max-height: 22px;
-    margin: 14px auto;
-    background: url(../../image/plus.png) no-repeat center center;
-    background-size: contain;
-    box-sizing: border-box;
-    padding-bottom: 22px;
-}

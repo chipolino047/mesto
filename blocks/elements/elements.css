@@ -14,7 +14,7 @@
     box-sizing: border-box;
 }
 
-@media screen and (max-width: 673px) {
+@media screen and (max-width: 895px) {
     .elements {
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;

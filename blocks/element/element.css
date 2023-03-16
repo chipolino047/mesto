@@ -1,13 +1,13 @@
 .element {
     max-width: 282px;
-    max-height: 362px;
-    width: 100%;
+    width: 282px;
     background-color: #FFF;
     border-radius: 10px;
     box-sizing: border-box;
+    padding: 0 0 31px 0;
 }
 
-@media screen and (max-width: 673px) {
+@media screen and (max-width: 895px) {
     .element {
         margin: 0 auto;
     }

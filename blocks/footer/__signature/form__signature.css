@@ -1,5 +1,5 @@
 .footer__signature {
-    font-family: 'Inter';
+    font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -10,7 +10,7 @@
     margin: 0 auto;
 }
 
-@media screen and (max-width: 673px) {
+@media screen and (max-width: 895px) {
     .footer__signature {
         font-size: 14px;
         line-height: 17px;

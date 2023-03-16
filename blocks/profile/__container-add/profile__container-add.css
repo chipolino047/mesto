@@ -1,0 +1,25 @@
+.profile__container-add {
+    width: 150px;
+    height: 50px;
+    border: 2px solid #FFF;
+    box-sizing: content-box;
+    margin: auto 0 auto auto;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.profile__container-add:hover {
+    opacity: .6;
+    transition: all .6s ease;
+}
+
+@media screen and (max-width: 895px) {
+    .profile__container-add {
+        width: 282px;
+        height: 50px;
+        margin: 36px auto 0 auto;
+    }
+}
