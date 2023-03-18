@@ -29,7 +29,3 @@
 @import url(../blocks/profile/__button-pen/profile__button-pen.css);
 @import url(../blocks/form/__text/_line_description/form__text_line_description.css);
 @import url(../blocks/form/__text/_line_title/form__text_line_title.css);
-
-* {
-    outline: 1px solid yellowgreen;
-}
