@@ -15,3 +15,9 @@
 .profile__button-pen:hover {
     opacity: .6;
 }
+
+@media screen and (max-width: 895px) {
+    .profile__button-pen {
+        margin-left: 10px;
+    }
+}
