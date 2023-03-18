@@ -8,6 +8,7 @@
     .profile__info-container {
         margin: 0 auto;
         text-align: center;
-        width: 223px;
+        max-width: 282px;
+        justify-content: center;
     }
 }

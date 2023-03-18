@@ -9,7 +9,7 @@
     transition: all .6s ease;
     padding: 0;
     background: url(../../../image/pen.svg) no-repeat center center;
-    background-size: 10px;
+    background-size: 10px 10px;
 }
 
 .profile__button-pen:hover {
@@ -19,5 +19,8 @@
 @media screen and (max-width: 895px) {
     .profile__button-pen {
         margin-left: 10px;
+        width: 18px;
+        height: 18px;
+        background-size: 7.5px 7.5px;
     }
 }

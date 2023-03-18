@@ -1,4 +1,4 @@
-let pen = document.querySelector('.profile__button-pen');
+let buttonPopup = document.querySelector('.profile__button-pen');
 let popup = document.querySelector('.popup');
 let popupClose = document.querySelector('.popup__close-img');
 let formElement = document.querySelector('.form');
@@ -25,6 +25,6 @@ function handleFormSubmit(evt) {
 }
 
 
-pen.addEventListener('click', open);
+buttonPopup.addEventListener('click', open);
 popupClose.addEventListener('click', close);
 formElement.addEventListener('submit', handleFormSubmit);
