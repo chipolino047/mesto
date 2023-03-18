@@ -20,15 +20,11 @@
             <div class="profile__info">
                 <div class="profile__info-container">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
-                    <div class="profile__container-pen">
-                        <button type="button" class="profile__button-pen" value="" aria-label="Редактировать"></button>
-                    </div>
+                    <button type="button" class="profile__button-pen" value="" aria-label="Редактировать"></button>
                 </div>
                 <p class="profile__text">Исследователь океана</p>
             </div>
-            <div class="profile__container-add">
-                <button type="button" class="profile__button-add" aria-label="Добавить" value=""></button>
-            </div>
+            <button type="button" class="profile__button-add" aria-label="Добавить" value=""></button>
         </section>
 
         <section class="elements">
@@ -49,28 +45,28 @@
             <div class="element">
                 <img src="./image/dovbai.png" alt="Картинка заснеженной горы" class="element__img">
                 <div class="element__container">
-                    <p class="element__text">Домбай</p>
+                    <h2 class="element__text">Домбай</h2>
                     <button type="button" class="element__heart"></button>
                 </div>
             </div>
             <div class="element">
                 <img src="./image/elbrus.png" alt="Картинка заката" class="element__img">
                 <div class="element__container">
-                    <p class="element__text">Домбай</p>
+                    <h2 class="element__text">Домбай</h2>
                     <button type="button" class="element__heart"></button>
                 </div>
             </div>
             <div class="element">
                 <img src="./image/dovbai.png" alt="Картинка заснеженной горы" class="element__img">
                 <div class="element__container">
-                    <p class="element__text">Эльбрус</p>
+                    <h2 class="element__text">Эльбрус</h2>
                     <button type="button" class="element__heart"></button>
                 </div>
             </div>
             <div class="element">
                 <img src="./image/karachervsk.png" alt="Картинка Карачаевского старого здания" class="element__img">
                 <div class="element__container">
-                    <p class="element__text">Карачаевск</p>
+                    <h2 class="element__text">Карачаевск</h2>
                     <button type="button" class="element__heart"></button>
                 </div>
             </div>
@@ -83,12 +79,11 @@
     <div class="popup">
         <div class="popup__container">
             <button class="popup__close-img" type="button" value=""></button>
-            <h3 class="popup__title">Редактировать профиль</h3>
+            <h2 class="popup__title">Редактировать профиль</h2>
             <form class="form" name="form">
-                    <input type="text" name="name" class="form__text form__text_name" value="Жак-Ив Кусто"
-                        placeholder="Введите имя и фамилию">
-                    <input type="text" name="description" class="form__text form__text_description"
-                        value="Исследователь океана" placeholder="Введите краткое описание">
+                <input type="text" name="name" class="form__text form__text_line_title" placeholder="Введите имя и фамилию">
+                <input type="text" name="description" class="form__text form__text_line_description"
+                    placeholder="Введите краткое описание">
                 <button type="submit" class="form__button" value="Сохранить">Сохранить</button>
             </form>
         </div>
