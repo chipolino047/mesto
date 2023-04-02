@@ -6,6 +6,8 @@ let nameInput = document.querySelector('.form__text_line_title');
 let jobInput = document.querySelector('.form__text_line_description');
 let profileTitle = document.querySelector('.profile__title');
 let profileText = document.querySelector('.profile__text');
+let tyu = (1, 2, 3, 4)
+
 const initialCards = [
     {
       name: 'Архыз',
@@ -32,6 +34,18 @@ const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
   ];
+
+  const templateElement = document.querySelector('#cards').content;
+  const sectionElements = document.querySelector('.elements');
+
+  initialCards.forEach (function (item) { 
+    const divElement = templateElement.querySelector('.element').cloneNode(true);
+
+    divElement.querySelector('.element__img').src = item.link;
+    divElement.querySelector('.element__text').textContent = item.name; 
+    
+     sectionElements.append(divElement);
+    });
 
 function open() {
     popup.classList.add('popup_opened');
