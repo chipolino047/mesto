@@ -1,12 +1,15 @@
-let buttonPopup = document.querySelector('.profile__button-pen');
-let popup = document.querySelector('.popup');
-let popupClose = document.querySelector('.popup__close-img');
-let formElement = document.querySelector('.form');
-let nameInput = document.querySelector('.form__text_line_title');
-let jobInput = document.querySelector('.form__text_line_description');
-let profileTitle = document.querySelector('.profile__title');
-let profileText = document.querySelector('.profile__text');
-let tyu = (1, 2, 3, 4)
+const buttonPopup = document.querySelector('.profile__button-pen');
+const popup = document.querySelector('.popup');
+const popupImgX = document.querySelector('.popup__close-img');
+const formElement = document.querySelector('.form');
+const nameInput = document.querySelector('.form__text_line_title');
+const jobInput = document.querySelector('.form__text_line_description');
+const profileTitle = document.querySelector('.profile__title');
+const profileText = document.querySelector('.profile__text');
+const buttonAddImg = document.querySelector('.profile__button-add')
+const popupAdd = document.querySelector('#popup-Add-Img')
+const closeAddImg = document.querySelector('#close-img-popup')
+
 
 const initialCards = [
     {
@@ -34,7 +37,7 @@ const initialCards = [
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
   ];
-
+  
   const templateElement = document.querySelector('#cards').content;
   const sectionElements = document.querySelector('.elements');
 
@@ -64,7 +67,17 @@ function handleFormSubmit(evt) {
     close();
 }
 
+function popupOpen() {
+    popupAdd.classList.add('popup_opened');
+}
+
+function popupClose() {
+    popupAdd.classList.remove('popup_opened')
+}
+
 
 buttonPopup.addEventListener('click', open);
-popupClose.addEventListener('click', close);
+popupImgX.addEventListener('click', close);
 formElement.addEventListener('submit', handleFormSubmit);
+buttonAddImg.addEventListener('click', popupOpen);
+closeAddImg.addEventListener('click', popupClose);
