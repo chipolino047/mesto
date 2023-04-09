@@ -42,15 +42,6 @@ const initialCards = [
   const templateElement = document.querySelector('#cards').content;
   const sectionElements = document.querySelector('.elements');
 
-  initialCards.forEach (function addImg (item) { 
-    const divElement = templateElement.querySelector('.element').cloneNode(true);
-
-    divElement.querySelector('.element__img').src = item.link;
-    divElement.querySelector('.element__text').textContent = item.name;
-
-     sectionElements.append(divElement);
-    });
-
 function open() {
     popup.classList.add('popup_opened');
     nameInput.value = profileTitle.textContent;
@@ -76,17 +67,30 @@ function popupClose() {
     popupAdd.classList.remove('popup_opened')
 };
 
-function addCards(evt) {
-  evt.preventDefault();
+function openImgPopup() {
   const itemElement = templateElement.querySelector('.element').cloneNode(true);
-  const likeElement = itemElement.querySelector('.element__heart')
   itemElement.querySelector('.element__img').src = linkInputValue.value;
   itemElement.querySelector('.element__text').textContent = nameInputValue.value;
-
-  likeElement.addEventListener('click', () => likeElement.classList.toggle('element__heart_active'));
-  sectionElements.prepend(itemElement);
-  popupClose();
 }
+
+function addCards(object) {
+  const itemElement = templateElement.querySelector('.element').cloneNode(true);
+  const likeElement = itemElement.querySelector('.element__heart');
+  const imageElement = itemElement.querySelector('.element__img');
+  const textElement = itemElement.querySelector('.element__text');
+
+  imageElement.src = object.link;
+  textElement.textContent = object.name;
+
+  imageElement.addEventListener('click', openImgPopup);
+  likeElement.addEventListener('click', () => likeElement.classList.toggle('element__heart_active'));
+  return itemElement;
+}
+
+initialCards.forEach(item => {
+  const card = addCards(item);
+  sectionElements.prepend(card);
+});
 
 formAddCards.addEventListener('submit', addCards);
 buttonPopup.addEventListener('click', open);
