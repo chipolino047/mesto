@@ -28,3 +28,4 @@
 @import url(../blocks/profile/__info-container/profile__info-container.css);
 @import url(../blocks/profile/__button-pen/profile__button-pen.css);
 @import url(../blocks/popup/__add/popup__add.css);
+@import url(../blocks/element/__heart/_active/element__heart_active.css);

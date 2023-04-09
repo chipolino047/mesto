@@ -11,7 +11,7 @@ const popupAdd = document.querySelector('#popup-Add-Img');
 const closeAddImg = document.querySelector('#close-img-popup');
 const nameInputValue = document.querySelector('.form__text_value-name');
 const linkInputValue = document.querySelector('.form__text_value-link');
-const FormAddCards = document.querySelector('.form__add-img');
+const formAddCards = document.querySelector('.form__add-img');
 const initialCards = [
     {
       name: 'Архыз',
@@ -46,8 +46,8 @@ const initialCards = [
     const divElement = templateElement.querySelector('.element').cloneNode(true);
 
     divElement.querySelector('.element__img').src = item.link;
-    divElement.querySelector('.element__text').textContent = item.name; 
-    
+    divElement.querySelector('.element__text').textContent = item.name;
+
      sectionElements.append(divElement);
     });
 
@@ -79,14 +79,16 @@ function popupClose() {
 function addCards(evt) {
   evt.preventDefault();
   const itemElement = templateElement.querySelector('.element').cloneNode(true);
+  const likeElement = itemElement.querySelector('.element__heart')
   itemElement.querySelector('.element__img').src = linkInputValue.value;
   itemElement.querySelector('.element__text').textContent = nameInputValue.value;
 
+  likeElement.addEventListener('click', () => likeElement.classList.toggle('element__heart_active'));
   sectionElements.prepend(itemElement);
-  popupClose()
+  popupClose();
 }
 
-FormAddCards.addEventListener('submit', addCards);
+formAddCards.addEventListener('submit', addCards);
 buttonPopup.addEventListener('click', open);
 popupImgX.addEventListener('click', close);
 formElement.addEventListener('submit', handleFormSubmit);
