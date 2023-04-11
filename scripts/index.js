@@ -67,12 +67,6 @@ function popupClose() {
     popupAdd.classList.remove('popup_opened')
 };
 
-function openImgPopup() {
-  const itemElement = templateElement.querySelector('.element').cloneNode(true);
-  itemElement.querySelector('.element__img').src = linkInputValue.value;
-  itemElement.querySelector('.element__text').textContent = nameInputValue.value;
-}
-
 function addCards(object) {
   const itemElement = templateElement.querySelector('.element').cloneNode(true);
   const likeElement = itemElement.querySelector('.element__heart');
@@ -82,7 +76,6 @@ function addCards(object) {
   imageElement.src = object.link;
   textElement.textContent = object.name;
 
-  imageElement.addEventListener('click', openImgPopup);
   likeElement.addEventListener('click', () => likeElement.classList.toggle('element__heart_active'));
   return itemElement;
 }
@@ -92,7 +85,14 @@ initialCards.forEach(item => {
   sectionElements.prepend(card);
 });
 
-formAddCards.addEventListener('submit', addCards);
+
+formAddCards.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  const cardsItem = {name: nameInputValue.value, link: linkInputValue.value};
+  const card = addCards(cardsItem);
+  sectionElements.prepend(card);
+  popupClose()
+});
 buttonPopup.addEventListener('click', open);
 popupImgX.addEventListener('click', close);
 formElement.addEventListener('submit', handleFormSubmit);
