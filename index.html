@@ -33,6 +33,7 @@
 
         <template id="cards" class="elements">
             <article class="element">
+                <button class="element__delete"></button>
                 <img src="" alt="Карточка с Фото" class="element__img">
                 <div class="element__container">
                     <h2 class="element__text"></h2>
@@ -43,12 +44,22 @@
 
     </main>
     <footer class="footer">
-        <p class="footer__signature">&#9426; 2023 Mesto Russia</p>
+        <p class="footer__signature">&#9426; 2023 Владимир Куренков</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup popup-img">
         <div class="popup__container">
-            <button class="popup__close-img" type="button" value=""></button>
+            <button class="popup__close-img" id="popup-close-figure" type="button" value=""></button>
+            <figure class="popup__figure">
+                <img src="#" alt="#" class="popup__figure-img">
+                <figcaption class="popup__figure-text"></figcaption>
+            </figure>
+        </div>
+    </div>
+
+    <div class="popup popup-profile">
+        <div class="popup__container">
+            <button class="popup__close-img" id="popup-close-profile" type="button" value=""></button>
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="form" name="form">
                 <input type="text" name="name" class="form__text form__text_line_title"
@@ -60,13 +71,15 @@
         </div>
     </div>
 
-    <div class="popup" id="popup-Add-Img">
+    <div class="popup popup__add-img">
         <div class="popup__container">
-            <button class="popup__close-img" id="close-img-popup" type="button" value="" aria-label="Закрыть попап"></button>
+            <button class="popup__close-img" id="close-img-popup" type="button" value=""
+                aria-label="Закрыть попап"></button>
             <h2 class="popup__title">Новое место</h2>
             <form class="form form__add-img" name="form">
                 <input type="text" name="name" class="form__text form__text_value-name" placeholder="Название">
-                <input type="text" name="link" class="form__text form__text_value-link" placeholder="Ссылка на картинку">
+                <input type="text" name="link" class="form__text form__text_value-link"
+                    placeholder="Ссылка на картинку">
                 <button type="submit" id="button_create" class="form__button" value="Создать">Создать</button>
             </form>
         </div>

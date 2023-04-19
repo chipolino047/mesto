@@ -1,0 +1,18 @@
+.element__delete {
+    width: 18px;
+    height: 19px;
+    background: url(../../../image/parasha.svg) no-repeat center center;
+    background-color: transparent;
+    background-size: cover;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all ease 0.5s;
+    position: absolute;
+    top: 20px;
+    right: 20px;;
+}
+
+.element__delete:hover {
+    opacity: 0.5;
+}

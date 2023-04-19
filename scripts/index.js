@@ -1,17 +1,19 @@
 const buttonPopup = document.querySelector('.profile__button-pen');
-const popup = document.querySelector('.popup');
-const popupImgX = document.querySelector('.popup__close-img');
+const popup = document.querySelector('.popup-profile');
+const popupImgClose = document.querySelector('.popup__close-img');
 const formElement = document.querySelector('.form');
 const nameInput = document.querySelector('.form__text_line_title');
 const jobInput = document.querySelector('.form__text_line_description');
 const profileTitle = document.querySelector('.profile__title');
 const profileText = document.querySelector('.profile__text');
 const buttonAddImg = document.querySelector('.profile__button-add');
-const popupAdd = document.querySelector('#popup-Add-Img');
+const popupAdd = document.querySelector('.popup__add-img');
 const closeAddImg = document.querySelector('#close-img-popup');
 const nameInputValue = document.querySelector('.form__text_value-name');
 const linkInputValue = document.querySelector('.form__text_value-link');
 const formAddCards = document.querySelector('.form__add-img');
+const popupCloseProfile = document.querySelector('#popup-close-profile');
+const popupCloseFigure = document.querySelector('#popup-close-figure');
 const initialCards = [
     {
       name: 'Архыз',
@@ -41,41 +43,60 @@ const initialCards = [
   
   const templateElement = document.querySelector('#cards').content;
   const sectionElements = document.querySelector('.elements');
+  const popupImg = document.querySelector('.popup-img')
 
-function open() {
-    popup.classList.add('popup_opened');
-    nameInput.value = profileTitle.textContent;
-    jobInput.value = profileText.textContent;
+//функция открытия попапа с профилем
+function open(object) {
+    object.classList.add('popup_opened');
 };
 
-function close() {
-    popup.classList.remove('popup_opened');
+//фукнция закрытия попапа с профилем
+function close(object) {
+    object.classList.remove('popup_opened');
 };
 
+//функция изменения профиля
 function handleFormSubmit(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileText.textContent = jobInput.value;
-    close();
+    close(popup);
 };
 
+// функция открытия попапа с добавлением картинки на страницу
 function popupOpen() {
     popupAdd.classList.add('popup_opened');
 };
 
+// функция закрытия попапа с добавлением картинки на страницу
 function popupClose() {
     popupAdd.classList.remove('popup_opened')
 };
 
+function popupOpenFigureImg() {
+  popupImg.classList.add('popup_opened');
+}
+
+//Функция добавления/удаления карточек и лайков
 function addCards(object) {
   const itemElement = templateElement.querySelector('.element').cloneNode(true);
   const likeElement = itemElement.querySelector('.element__heart');
   const imageElement = itemElement.querySelector('.element__img');
   const textElement = itemElement.querySelector('.element__text');
-
+  const buttonDelete = itemElement.querySelector('.element__delete');
   imageElement.src = object.link;
   textElement.textContent = object.name;
-
+  function openImgPopup(src, title) {
+    imageElement.src = src;
+    imageElement.alt = title;
+    textElement.textContent = title;
+    open(popupImg);
+  } 
+  imageElement.addEventListener('click', () => openImgPopup(object.link, object.name));
+  buttonDelete.addEventListener('click', () => {
+    const deleteCard = buttonDelete.closest('.element');
+    deleteCard.remove()
+  })
   likeElement.addEventListener('click', () => likeElement.classList.toggle('element__heart_active'));
   return itemElement;
 }
@@ -91,10 +112,13 @@ formAddCards.addEventListener('submit', (evt) => {
   const cardsItem = {name: nameInputValue.value, link: linkInputValue.value};
   const card = addCards(cardsItem);
   sectionElements.prepend(card);
-  popupClose()
+  close(popup)
 });
-buttonPopup.addEventListener('click', open);
-popupImgX.addEventListener('click', close);
+popupCloseProfile.addEventListener('click', () => {close(popup)})
+buttonPopup.addEventListener('click', () => {open(popup);
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileText.textContent;});
+popupImgClose.addEventListener('click', close);
 formElement.addEventListener('submit', handleFormSubmit);
-buttonAddImg.addEventListener('click', popupOpen);
+buttonAddImg.addEventListener('click', () => open(popupAdd));
 closeAddImg.addEventListener('click', popupClose);
