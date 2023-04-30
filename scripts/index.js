@@ -43,7 +43,9 @@ const initialCards = [
   
   const templateElement = document.querySelector('#cards').content;
   const sectionElements = document.querySelector('.elements');
-  const popupImg = document.querySelector('.popup-img')
+  const popupImg = document.querySelector('.popup-img');
+  const bigImage = document.querySelector('.popup__figure-img');
+  const bigText = document.querySelector('.popup__figure-text');
 
 //функция открытия попапа с профилем
 function open(object) {
@@ -63,20 +65,6 @@ function handleFormSubmit(evt) {
     close(popup);
 };
 
-// функция открытия попапа с добавлением картинки на страницу
-function popupOpen() {
-    popupAdd.classList.add('popup_opened');
-};
-
-// функция закрытия попапа с добавлением картинки на страницу
-function popupClose() {
-    popupAdd.classList.remove('popup_opened')
-};
-
-function popupOpenFigureImg() {
-  popupImg.classList.add('popup_opened');
-}
-
 //Функция добавления/удаления карточек и лайков
 function addCards(object) {
   const itemElement = templateElement.querySelector('.element').cloneNode(true);
@@ -87,9 +75,9 @@ function addCards(object) {
   imageElement.src = object.link;
   textElement.textContent = object.name;
   function openImgPopup(src, title) {
-    imageElement.src = src;
-    imageElement.alt = title;
-    textElement.textContent = title;
+    bigImage.src = src;
+    bigImage.alt = title;
+    bigText.textContent = title;
     open(popupImg);
   } 
   imageElement.addEventListener('click', () => openImgPopup(object.link, object.name));
@@ -114,11 +102,13 @@ formAddCards.addEventListener('submit', (evt) => {
   sectionElements.prepend(card);
   close(popup)
 });
-popupCloseProfile.addEventListener('click', () => {close(popup)})
+
+popupCloseFigure.addEventListener('click', () => close(popupImg));
+popupCloseProfile.addEventListener('click', () => close(popup));
 buttonPopup.addEventListener('click', () => {open(popup);
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileText.textContent;});
 popupImgClose.addEventListener('click', close);
 formElement.addEventListener('submit', handleFormSubmit);
 buttonAddImg.addEventListener('click', () => open(popupAdd));
-closeAddImg.addEventListener('click', popupClose);
+closeAddImg.addEventListener('click', () => close(popupAdd));

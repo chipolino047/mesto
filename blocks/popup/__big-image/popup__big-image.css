@@ -1,0 +1,9 @@
+.popup__big-image {
+    max-width: 75vw;
+    max-height: 75vh;
+    background-color: transparent;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
