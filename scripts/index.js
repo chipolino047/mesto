@@ -100,7 +100,7 @@ formAddCards.addEventListener('submit', (evt) => {
   const cardsItem = {name: nameInputValue.value, link: linkInputValue.value};
   const card = addCards(cardsItem);
   sectionElements.prepend(card);
-  close(popup)
+  close(popupAdd)
 });
 
 popupCloseFigure.addEventListener('click', () => close(popupImg));
@@ -108,7 +108,7 @@ popupCloseProfile.addEventListener('click', () => close(popup));
 buttonPopup.addEventListener('click', () => {open(popup);
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileText.textContent;});
-popupImgClose.addEventListener('click', close);
+popupImgClose.addEventListener('click', () => close(popupImg));
 formElement.addEventListener('submit', handleFormSubmit);
 buttonAddImg.addEventListener('click', () => open(popupAdd));
 closeAddImg.addEventListener('click', () => close(popupAdd));
