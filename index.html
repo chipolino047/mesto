@@ -15,6 +15,7 @@
     </header>
     <main class="main">
 
+        <!--Профиль на странице-->
         <section class="profile">
             <img src="./image/kusto.svg" alt="Фото профиля" class="profile__avatar">
             <div class="profile__info">
@@ -31,13 +32,14 @@
             <!--тут лежат карточки из template-->
         </section>
 
+        <!--Сам темплейт-->
         <template id="cards" class="elements">
             <article class="element">
-                <button class="element__delete"></button>
+                <button type="button" class="element__delete"></button>
                 <img src="#" alt="Карточка с Фото" class="element__img">
                 <div class="element__container">
                     <h2 class="element__text"></h2>
-                    <button type="button" class="element__heart" id="element__heart"></button>
+                    <button type="button" class="element__heart"></button>
                 </div>
             </article>
         </template>
@@ -47,7 +49,8 @@
         <p class="footer__signature">&#9426; 2023 Владимир Куренков</p>
     </footer>
 
-    <div class="popup popup-img">
+    <!--Попап с открытием картинок на весь экран-->
+    <div class="popup popup_img">
         <div class="popup__big-image">
             <button class="popup__close-img" id="popup-close-figure" type="button" value=""></button>
             <figure class="popup__figure">
@@ -57,6 +60,7 @@
         </div>
     </div>
 
+    <!--Попап с редактированием профиля-->
     <div class="popup popup-profile">
         <div class="popup__container">
             <button class="popup__close-img" id="popup-close-profile" type="button" value=""></button>
@@ -71,20 +75,22 @@
         </div>
     </div>
 
+    <!--Попап с добавлением карточки-->
     <div class="popup popup_add_img">
         <div class="popup__container">
             <button class="popup__close-img" id="popup-close-img" type="button" value=""
                 aria-label="Закрыть попап"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="form form_add_img" name="form">
+            <form class="form form_add_img" name="form_add">
                 <input type="text" name="name" class="form__text form__text_value-name" placeholder="Название">
                 <input type="text" name="link" class="form__text form__text_value-link"
                     placeholder="Ссылка на картинку">
-                <button type="submit" id="button_create" class="form__button" value="Создать">Создать</button>
+                <button type="submit" class="form__button form__button_reset" value="Создать">Создать</button>
             </form>
         </div>
     </div>
 
+    <script src="./scripts/cards.js" defer></script>
     <script src="./scripts/index.js" defer></script>
 </body>
 
