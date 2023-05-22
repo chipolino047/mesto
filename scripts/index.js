@@ -1,6 +1,6 @@
 const buttonPopupProfile = document.querySelector('.profile__button-pen');
 const popupProfile = document.querySelector('.popup-profile');
-const formElement = document.querySelector('.form');
+const formElement = document.querySelector('.form_popup_profile');
 const nameInput = document.querySelector('.form__text_line_title');
 const jobInput = document.querySelector('.form__text_line_description');
 const profileTitle = document.querySelector('.profile__title');
