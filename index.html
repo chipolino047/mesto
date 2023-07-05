@@ -65,11 +65,30 @@
         <div class="popup__container">
             <button class="popup__close-img" id="popup-close-profile" type="button" value=""></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="form form_popup_profile" name="form">
-                <input type="text" name="name" class="form__text form__text_line_title"
-                    placeholder="Введите имя и фамилию">
-                <input type="text" name="description" class="form__text form__text_line_description"
-                    placeholder="Введите краткое описание">
+            <form class="form form_popup_profile" name="form" novalidate>
+
+                <input 
+                type="text"
+                id="title-profile"
+                name="title-profile"
+                class="form__text form__text_type_title"
+                placeholder="Введите имя и фамилию"
+                minlength="2"
+                maxlength="40"
+                required>
+                <span class="form__text-error title-profile-error"></span>
+
+                <input 
+                type="text"
+                id="description-profile"
+                name="description-profile"
+                class="form__text form__text_type_description"
+                placeholder="О себе" 
+                minlength="2" 
+                maxlength="200" 
+                required>
+                <span class="form__text-error description-profile-error"></span>
+
                 <button type="submit" class="form__button" value="Сохранить">Сохранить</button>
             </form>
         </div>
@@ -81,16 +100,34 @@
             <button class="popup__close-img" id="popup-close-img" type="button" value=""
                 aria-label="Закрыть попап"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="form form_add_img" name="form_add">
-                <input type="text" name="name" class="form__text form__text_value-name" placeholder="Название">
-                <input type="text" name="link" class="form__text form__text_value-link"
-                    placeholder="Ссылка на картинку">
+            <form class="form form_add_img" name="form_add" novalidate>
+                <input 
+                type="text" 
+                id="add-name"
+                name="add-name" 
+                class="form__text form__text_type_add-name" 
+                placeholder="Название"
+                minlength="2"
+                maxlength="40"
+                required>
+                <span class="form__text-error add-name-error"></span>
+
+                <input 
+                type="url" 
+                id="link"
+                name="link" 
+                class="form__text form__text_type_link"
+                placeholder="Ссылка на картинку"
+                required>
+                <span class="form__text-error link-error"></span>
+
                 <button type="submit" class="form__button form__button_reset" value="Создать">Создать</button>
             </form>
         </div>
     </div>
 
     <script src="./scripts/cards.js" defer></script>
+    <script src="./scripts/validate.js" defer></script>
     <script src="./scripts/index.js" defer></script>
 </body>
 
