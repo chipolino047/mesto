@@ -59,7 +59,7 @@ const isValid = (formElements, inputElement) => {
         inputElement.addEventListener('input', () => {
             isValid(formElement, inputElement);
 
-            toggleButtonState(inputElement, buttonElement);
+            toggleButtonState(StringInputText, buttonElement);
         })
     })
   }
