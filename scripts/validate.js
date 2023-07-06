@@ -49,17 +49,17 @@ const isValid = (formElements, inputElement) => {
   }
 
   //Функция которая добавляет полям нужные обработчики событий
-  const setEventListeners = (formElements) => {
-    const StringInputText = Array.from(formElements.querySelectorAll('.form__text'));
-    const buttonElement = form.querySelector('.form__button')
+  const setEventListeners = (formElement) => {
+    const StringInputText = Array.from(formElement.querySelectorAll('.form__text'));
+    const buttonElement = formElement.querySelector('.form__button')
 
     toggleButtonState(StringInputText, buttonElement);
 
     StringInputText.forEach((inputElement) => {
         inputElement.addEventListener('input', () => {
-            isValid(formElements, inputElement);
+            isValid(formElement, inputElement);
 
-            toggleButtonState(StringInputText, buttonElement);
+            toggleButtonState(inputElement, buttonElement);
         })
     })
   }
@@ -73,24 +73,7 @@ const isValid = (formElements, inputElement) => {
     })
   }
 
-  
-  enableValidation({
-    formSelector: '.form',
-    inputSelector: '.form__text',
-    submitButtonSelector: '.form__button',
-    inactiveButtonClass: 'form__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible'
-  }); 
-  
-  enableValidation({
-    formSelector: '.form',
-    inputSelector: '.form__text',
-    submitButtonSelector: '.form__button',
-    inactiveButtonClass: 'form__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible'
-  }); 
+
 
 
 
