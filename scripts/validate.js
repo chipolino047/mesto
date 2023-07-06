@@ -72,8 +72,3 @@ const isValid = (formElements, inputElement) => {
         setEventListeners(formElements)
     })
   }
-
-
-
-
-
