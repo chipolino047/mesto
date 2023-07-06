@@ -18,16 +18,42 @@ const sectionElement = document.querySelector('.elements');
 const popupImg = document.querySelector('.popup_img');
 const bigImage = document.querySelector('.popup__figure-img');
 const bigText = document.querySelector('.popup__figure-text');
-const buttonFormReset = document.querySelector('form__button_reset');
+const popup = document.querySelector('.popup');
 
-//функция открытия попапа с профилем
+
+
+//Универсальная функция открытия попапа
 function openPopup(object) {
   object.classList.add('popup_opened');
+
+  //Слушатель на закрытие попапа кликом на оверлей
+  object.addEventListener('click', (evt) => {
+    if (evt.currentTarget === evt.target) {
+      object.classList.remove('popup_opened')
+    };
+  });
+
+  //Слушатель закрытия попапа нажатием ESC 
+  document.addEventListener('keydown', (evt) => {
+    if(evt.key === 'Escape') {
+      object.classList.remove('popup_opened')
+    }
+  })
 };
 
-//фукнция закрытия попапа с профилем
+//Универсальная функция закрытия попапа
 function closePopup(object) {
   object.classList.remove('popup_opened');
+  object.removeEventListener('click', (evt) => {
+    if (evt.currentTarget === evt.target) {
+      object.classList.remove('popup_opened')
+    };
+  });
+  document.removeEventListener('keydown', (evt) => {
+    if(evt.key === 'Escape') {
+      object.classList.remove('popup_opened')
+    }
+  })
 };
 
 //функция изменения профиля

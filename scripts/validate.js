@@ -37,6 +37,7 @@ const isValid = (formElements, inputElement) => {
     })
   }
 
+  //функция активации/деактивации кнопки
   const toggleButtonState = (inputElement, buttonElement) => {
     if (hasInvalidInput(inputElement)) {
         buttonElement.disabled = true;
@@ -50,7 +51,7 @@ const isValid = (formElements, inputElement) => {
   //Функция которая добавляет полям нужные обработчики событий
   const setEventListeners = (formElements) => {
     const StringInputText = Array.from(formElements.querySelectorAll('.form__text'));
-    const buttonElement = document.querySelector('.form__button')
+    const buttonElement = form.querySelector('.form__button')
 
     toggleButtonState(StringInputText, buttonElement);
 
@@ -72,7 +73,14 @@ const isValid = (formElements, inputElement) => {
     })
   }
 
-  enableValidation();
+  enableValidation({
+    formSelector: '.form',
+    inputSelector: '.form__text',
+    submitButtonSelector: '.form__button',
+    inactiveButtonClass: 'form__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+  }); 
 
 
 
