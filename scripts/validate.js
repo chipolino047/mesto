@@ -81,6 +81,24 @@ const isValid = (formElements, inputElement) => {
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible'
   }); 
+  
+  enableValidation({
+    formSelector: '.form',
+    inputSelector: '.form__text',
+    submitButtonSelector: '.form__button',
+    inactiveButtonClass: 'form__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+  }); 
+  
+  enableValidation({
+    formSelector: '.form',
+    inputSelector: '.form__text',
+    submitButtonSelector: '.form__button',
+    inactiveButtonClass: 'form__button_disabled',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__error_visible'
+  }); 
 
 
 
