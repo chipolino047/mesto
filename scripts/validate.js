@@ -41,7 +41,7 @@ const disabledButton = (buttonElement, config) => {
 //Функция включения кнопки
 const enableButton = (buttonElement, config) => {
   buttonElement.disabled = false;
-  buttonElement.classList.remove(config.inactiveButtonClass)
+  buttonElement.classList.remove(config.inactiveButtonClass);
 }
 
 //функция переключения состояние кнопки
@@ -55,16 +55,16 @@ const toggleButtonState = (inputElement, buttonElement, config) => {
 
 //Функция которая добавляет полям нужные обработчики событий
 const setEventListeners = (formElement, config) => {
-  const StringInputText = Array.from(formElement.querySelectorAll(config.inputSelector));
+  const stringInputList = Array.from(formElement.querySelectorAll(config.inputSelector));
   const buttonElement = formElement.querySelector(config.submitButtonSelector)
 
-  toggleButtonState(StringInputText, buttonElement, config);
+  toggleButtonState(stringInputList, buttonElement, config);
 
-  StringInputText.forEach((inputElement) => {
+  stringInputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       isValid(formElement, inputElement);
 
-      toggleButtonState(StringInputText, buttonElement, config);
+      toggleButtonState(stringInputList, buttonElement, config);
     })
   })
 }

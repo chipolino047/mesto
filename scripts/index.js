@@ -7,6 +7,7 @@ const profileTitle = document.querySelector('.profile__title');
 const profileText = document.querySelector('.profile__text');
 const buttonAddImg = document.querySelector('.profile__button-add');
 const popupAdd = document.querySelector('.popup_add_img');
+const buttonSubmitAdd = popupAdd.querySelector('.form__button');
 const closePopupAddImg = document.querySelector('#popup-close-img');
 const nameInputValue = document.querySelector('.form__text_type_add-name');
 const linkInputValue = document.querySelector('.form__text_type_link');
@@ -95,7 +96,7 @@ initialCards.forEach(item => {
 });
 
 
-formAddCards.addEventListener('submit', (evt, buttonElement) => {
+formAddCards.addEventListener('submit', (evt) => {
   evt.preventDefault();
   const cardsItem = {
     name: nameInputValue.value,
@@ -105,7 +106,7 @@ formAddCards.addEventListener('submit', (evt, buttonElement) => {
   sectionElement.prepend(card);
   closePopup(popupAdd);
   formAddCards.reset();
-  disabledButton(buttonElement, config);
+  disabledButton(buttonSubmitAdd, config);
 });
 
 popupCloseFigure.addEventListener('click', () => closePopup(popupImg));
