@@ -38,3 +38,4 @@
 @import url(../blocks/form/__text/_type/_error/form__text_type_error.css);
 @import url(../blocks/form/__text-error/_active/form__text-error_active.css);
 @import url(../blocks/form/__button/_submit/_inactiv/form__button_submit_inactiv.css);
+@import url(../blocks/form/__text-error/form__text-error.css);

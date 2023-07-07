@@ -1,0 +1,11 @@
+.form__text-error {
+    display: block;
+    font-size: 12px;
+    max-width: 358px;
+}
+
+@media screen and (max-width: 895px) {
+    .form__text-error {
+        max-width: 238px;
+    }
+}

@@ -26,25 +26,35 @@ const isValid = (formElements, inputElement) => {
 }
 
 //Функция валидации полей для деактивации/активации кнопки
-const hasInvalidInput = (inputList, config) => {
+const hasInvalidInput = (inputList) => {
   return inputList.some((inputList) => {
     return !inputList.validity.valid
   })
 }
 
-//функция активации/деактивации кнопки
+//функция выключения кнопки
+const disabledButton = (buttonElement, config) => {
+  buttonElement.disabled = true;
+  buttonElement.classList.add(config.inactiveButtonClass);
+}
+
+//Функция включения кнопки
+const enableButton = (buttonElement, config) => {
+  buttonElement.disabled = false;
+  buttonElement.classList.remove(config.inactiveButtonClass)
+}
+
+//функция переключения состояние кнопки
 const toggleButtonState = (inputElement, buttonElement, config) => {
   if (hasInvalidInput(inputElement)) {
-    buttonElement.disabled = true;
-    buttonElement.classList.add(config.inactiveButtonClass)
+    disabledButton(buttonElement, config);
   } else {
-    buttonElement.disabled = false;
-    buttonElement.classList.remove(config.inactiveButtonClass)
+    enableButton(buttonElement, config);
   }
 }
 
 //Функция которая добавляет полям нужные обработчики событий
-const setEventListeners = (formElement) => {
+const setEventListeners = (formElement, config) => {
   const StringInputText = Array.from(formElement.querySelectorAll(config.inputSelector));
   const buttonElement = formElement.querySelector(config.submitButtonSelector)
 
@@ -63,8 +73,8 @@ const setEventListeners = (formElement) => {
 const enableValidation = (config) => {
   const formList = Array.from(document.querySelectorAll(config.formSelector))
 
-  formList.forEach((formElements) => {
-    setEventListeners(formElements, config)
+  formList.forEach((formElement) => {
+    setEventListeners(formElement, config)
   })
 }
 
@@ -77,8 +87,7 @@ const config = ({
   errorClass: 'form__text-error_active'
 })
 
-
-enableValidation(config)
+enableValidation(config);
 
 
 
