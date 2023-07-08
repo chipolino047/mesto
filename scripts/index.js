@@ -21,39 +21,37 @@ const bigImage = document.querySelector('.popup__figure-img');
 const bigText = document.querySelector('.popup__figure-text');
 
 //Функция закрытия попапа кликом на оверлей
-const closePopupByOverlayClick = (object) => {
-  object.addEventListener('click', (evt) => {
+const closePopupByOverlayClick = (evt) => {
     if (evt.currentTarget === evt.target) {
       closePopup(evt.currentTarget)
     };
-  });
-}
+  };
 
 //Функция закрытия попапа нажатием Esc
-const closePopupByEsc = () => {
-  document.addEventListener('keydown', (evt) => {
+const closePopupByEsc = (evt) => {
     if (evt.key === 'Escape') {
       closePopup(document.querySelector('.popup_opened'))
     }
-  })
-}
+  }
 
 //Универсальная функция открытия попапа
 function openPopup(object) {
   object.classList.add('popup_opened');
 
   //Функция на закрытие попапа кликом на оверлей
-  closePopupByOverlayClick(object);
+  object.addEventListener('click', closePopupByOverlayClick);
 
   //Функция закрытия попапа нажатием ESC 
-  closePopupByEsc();
+  document.addEventListener('keydown', closePopupByEsc);
 };
 
 //Универсальная функция закрытия попапа
 function closePopup(object) {
   object.classList.remove('popup_opened');
-  closePopupByOverlayClick(object);
-  closePopupByEsc();
+
+  object.removeEventListener('click', closePopupByOverlayClick);
+
+  document.removeEventListener('keydown', closePopupByEsc);
 };
 
 //функция изменения профиля
@@ -106,7 +104,7 @@ formAddCards.addEventListener('submit', (evt) => {
   sectionElement.prepend(card);
   closePopup(popupAdd);
   formAddCards.reset();
-  disabledButton(buttonSubmitAdd, config);
+  disableButton(buttonSubmitAdd, config);
 });
 
 popupCloseFigure.addEventListener('click', () => closePopup(popupImg));

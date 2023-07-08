@@ -33,7 +33,7 @@ const hasInvalidInput = (inputList) => {
 }
 
 //функция выключения кнопки
-const disabledButton = (buttonElement, config) => {
+const disableButton = (buttonElement, config) => {
   buttonElement.disabled = true;
   buttonElement.classList.add(config.inactiveButtonClass);
 }
@@ -47,7 +47,7 @@ const enableButton = (buttonElement, config) => {
 //функция переключения состояние кнопки
 const toggleButtonState = (inputElement, buttonElement, config) => {
   if (hasInvalidInput(inputElement)) {
-    disabledButton(buttonElement, config);
+    disableButton(buttonElement, config);
   } else {
     enableButton(buttonElement, config);
   }
