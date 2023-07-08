@@ -2,7 +2,6 @@
     display: block;
     font-size: 12px;
     max-width: 358px;
-    min-height: 30px;
 }
 
 @media screen and (max-width: 895px) {
