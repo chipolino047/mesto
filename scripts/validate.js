@@ -78,14 +78,14 @@ const enableValidation = (config) => {
   })
 }
 
-const config = ({
+const config = {
   formSelector: '.form',
   inputSelector: '.form__text',
   submitButtonSelector: '.form__button',
   inactiveButtonClass: 'form__button_submit_inactiv',
   inputErrorClass: 'form__text_type_error',
   errorClass: 'form__text-error_active'
-})
+}
 
 enableValidation(config);
 
