@@ -53,7 +53,7 @@ class Card {
     this._imageElement.src = this._link;
     this._imageElement.alt = this._name;
     this._textElement.textContent = this._name;
-    this._listenerArray()
+    this._setEventListeners()
     return this._getElement
   }
 
@@ -74,7 +74,7 @@ class Card {
   }
 
   //массив слушателей
-  _listenerArray() {
+  _setEventListeners() {
     this._likeElement.addEventListener('click', () => this._clickLikeInCard())
     this._deleteElement.addEventListener('click', () => this._clickDeleteInCard())
     this._imageElement.addEventListener('click', () => this._clickZoomInImageToCard())
