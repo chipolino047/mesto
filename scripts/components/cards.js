@@ -1,31 +1,4 @@
-export {initialCards, Card}
-
-const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ];
+export {Card}
 
   //создаём класс 
 class Card {
@@ -69,7 +42,7 @@ class Card {
   }
 
   //Клик на картинку увеличит её
-  _clickZoomInImageToCard() {
+  _clickZoomInImageToCard = () => {
     this._openImgPopup(this._link, this._name)
   }
 
@@ -77,6 +50,6 @@ class Card {
   _setEventListeners() {
     this._likeElement.addEventListener('click', () => this._clickLikeInCard())
     this._deleteElement.addEventListener('click', () => this._clickDeleteInCard())
-    this._imageElement.addEventListener('click', () => this._clickZoomInImageToCard())
+    this._imageElement.addEventListener('click', this._clickZoomInImageToCard)
   }
 }
