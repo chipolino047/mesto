@@ -10,7 +10,7 @@ export default class PopupWidthImage extends Popup {
     open = (dataCard) => {
         super.open();
         this._popupImage.src = dataCard.link;
-        this._popupImage.alt = `Картинка ${dataCard.name}`;
-        this._popupFigureText.textContent = dataCard.name;
+        this._popupImage.alt = `Картинка ${dataCard.title}`;
+        this._popupFigureText.textContent = dataCard.title;
     }
 }

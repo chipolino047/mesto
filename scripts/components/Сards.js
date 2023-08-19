@@ -6,7 +6,7 @@ class Card {
   constructor(dataCard, templateElement, openImgPopup) {
     this._dataCard = dataCard;
     this._link = dataCard.link;
-    this._name = dataCard.name;
+    this._name = dataCard.title;
     this._templateElement = templateElement;
     this._openImgPopup = openImgPopup;
   }
@@ -43,7 +43,7 @@ class Card {
 
   //Клик на картинку увеличит её
   _clickZoomInImageToCard = () => {
-    this._openImgPopup(this._link, this._name)
+    this._openImgPopup(this._dataCard)
   }
 
   //массив слушателей

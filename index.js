@@ -1,7 +1,11 @@
-import {Card} from './scripts/components/cards.js'
+import {Card} from './scripts/components/Сards.js'
 import {FormValidator} from './scripts/components/FormValidator.js'
 import {initialCards} from './scripts/utils/utils.js'
 import PopupWidthImage from './scripts/components/PopupWithImage.js';
+import Section from './scripts/components/Section.js';
+import UserInfo from './scripts/components/UserInfo.js';
+import PopupWidthForm from './scripts/components/PopupWidthForm.js';
+import Popup from './scripts/components/Popup.js';
 
 const buttonPopupProfile = document.querySelector('.profile__button-pen');
 const popupProfile = document.querySelector('.popup-profile');
@@ -19,12 +23,21 @@ const linkInputValue = document.querySelector('.form__text_type_link');
 const formAddCards = document.querySelector('.form_add_img');
 const popupCloseProfile = document.querySelector('#popup-close-profile');
 const popupCloseFigure = document.querySelector('#popup-close-figure');
-const templateElement = '#cards';
+
 const sectionElement = document.querySelector('.elements');
 const popupImg = document.querySelector('.popup_img');
 const bigImage = document.querySelector('.popup__figure-img');
 const bigText = document.querySelector('.popup__figure-text');
+const templateElement = '#cards';
 const popupFigure = '.popup_img';
+const sectionElementSelector = '.elements'
+const profilePopupSelector = '.popup-profile'
+const popupAddCardSelector = '.popup_add_img'
+
+const configInfo = {
+  profileName: '.profile__title',
+  profileTextInfo: '.profile__text'
+}
 
 const config = {
   formSelector: '.form',
@@ -35,8 +48,27 @@ const config = {
   errorClass: 'form__text-error_active'
 }
 
+const userInfo = new UserInfo(configInfo);
+
 const popupImage = new PopupWidthImage(popupFigure)
 popupImage.setEventListeners()
+
+const profilePopup = new PopupWidthForm(profilePopupSelector, (evt) => {
+  evt.preventDefault();
+  userInfo.setUserInfo(profilePopup.getInputValue());
+  profilePopup.close();
+})
+profilePopup.setEventListeners()
+/**
+ * 
+ */
+
+const popupAddCard = new PopupWidthForm(popupAddCardSelector, (evt) => {
+  evt.preventDefault();
+  section.addItem(section.renderer(popupAddCard.getInputValue()));
+  popupAddCard.close()
+})
+popupAddCard.setEventListeners()
 
 
 
@@ -54,43 +86,26 @@ function handleFormSubmitFormAdd(evt) {
   closePopup(popupProfile);
 };
 
+const section = new Section({
+  items: initialCards,
+  renderer: (element) => {
+    const card = new Card(element, templateElement, popupImage.open);
+    return card.createCard()
+  }
+}, sectionElementSelector)
 
-//Функция добавления/удаления карточек и лайков
-function createCard(item) {
-  const card = new Card(item, templateElement, popupImage.open);
-  const cardElement = card.createCard()
-  return cardElement;
-}
-
-//Выводим массив карточек
-initialCards.forEach(item => {
-  sectionElement.prepend(createCard(item));
-});
-
-//Слушатель создания карточки нажатием на +
-formAddCards.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  const cardsItem = {
-    name: nameInputValue.value,
-    link: linkInputValue.value
-  };
-
-  sectionElement.prepend(createCard(cardsItem));
-  closePopup(popupAdd);
-  formAddCards.reset();
-  // disableButton(buttonSubmitAdd, config);
-});
+section.addCardArr();
 
 buttonPopupProfile.addEventListener('click', () => {
   formValidatorProfile.resetError()
-  nameInput.value = profileTitle.textContent;
-  jobInput.value = profileText.textContent;
+  // nameInput.value = profileTitle.textContent;
+  // jobInput.value = profileText.textContent;
+  profilePopup.setInputValue(userInfo.getUserInfo())
+  profilePopup.open()
 });
 
-formPopupProfile.addEventListener('submit', handleFormSubmitFormAdd);
-
 buttonAddImg.addEventListener('click', () => {
-  // openPopup(popupAdd);
+  popupAddCard.open()
   formValidatorAddCard.resetError();
   formAddCards.reset();
 });
