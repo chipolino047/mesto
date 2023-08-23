@@ -1,6 +1,5 @@
 export {Card}
 
-  //создаём класс 
 class Card {
   //Конструктор определяет данные карточки 
   constructor(dataCard, templateElement, openImgPopup) {

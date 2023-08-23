@@ -7,8 +7,8 @@ export default class PopupWidthForm extends Popup {
         this._form = this._popup.querySelector('.form')
         this._inputList = this._form.querySelectorAll('.form__text')
     }
-
-    getInputValue() {
+    
+    _getInputValue() {
         this._values = {};
         this._inputList.forEach(input => {
             this._values[input.name] = input.value;
@@ -24,7 +24,7 @@ export default class PopupWidthForm extends Popup {
 
     setEventListeners() {
         super.setEventListeners();
-        this._form.addEventListener('submit', this._submitFunction)
+        this._form.addEventListener('submit', () => this._submitFunction(this._getInputValue()))
     }
 
     close() {
