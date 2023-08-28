@@ -24,15 +24,13 @@ const userInfo = new UserInfo(configInfo);
 
 const popupImage = new PopupWidthImage(popupFigure)
 
-const profilePopup = new PopupWidthForm(profilePopupSelector, (evt) => {
-  evt.preventDefault();
-  userInfo.setUserInfo(profilePopup._getInputValue());
+const profilePopup = new PopupWidthForm(profilePopupSelector, (data) => {
+  userInfo.setUserInfo(data);
   profilePopup.close();
 })
 
-const popupAddCard = new PopupWidthForm(popupAddCardSelector, (evt) => {
-  evt.preventDefault();
-  section.addItem(section.renderer(popupAddCard._getInputValue()));
+const popupAddCard = new PopupWidthForm(popupAddCardSelector, (data) => {
+  section.addItem(section.renderer(data));
   popupAddCard.close()
 })
 
