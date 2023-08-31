@@ -6,6 +6,8 @@ export default class PopupWidthForm extends Popup {
         this._submitFunction = submitFunction;
         this._form = this._popup.querySelector('.form')
         this._inputList = this._form.querySelectorAll('.form__text')
+        this._submitButton = this._form.querySelector('.form__button')
+        this._defaultButtonText = this._submitButton.textContent;
     }
     
     _getInputValue() {
@@ -26,10 +28,13 @@ export default class PopupWidthForm extends Popup {
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
+            this._submitButton.textContent = `${this._submitButton.textContent}...`
             this._submitFunction(this._getInputValue())
         })
- 
- 
+    }
+
+    setupDefaultText() {
+        this._submitButton.textContent = this._defaultButtonText
     }
 
     close() {

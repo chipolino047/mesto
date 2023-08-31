@@ -67,7 +67,7 @@ class FormValidator {
         if (inputElement.validity.valid) {
           this._hideInputError(errorText, inputElement)
         }
-      })
+      }),
       this._disableButton()
     }
   }

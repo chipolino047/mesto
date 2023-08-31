@@ -39,3 +39,5 @@
 @import url(../blocks/form/__text-error/_active/form__text-error_active.css);
 @import url(../blocks/form/__button/_submit/_inactiv/form__button_submit_inactiv.css);
 @import url(../blocks/form/__text-error/form__text-error.css);
+@import url(../blocks/profile/__avatar-overlay/profile__avatar-overlay.css);
+@import url(../blocks/element/__container-likes/element__container-likes.css);

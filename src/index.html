@@ -16,13 +16,15 @@
 
         <!--Профиль на странице-->
         <section class="profile">
-            <img src="<%=require('../image/kusto.svg')%>" alt="Фото профиля" class="profile__avatar">
+            <button typt="button" class="profile__avatar-overlay">
+                <img src="#" alt="Фото профиля" class="profile__avatar">
+            </button>
             <div class="profile__info">
                 <div class="profile__info-container">
-                    <h1 class="profile__title">Жак-Ив Кусто</h1>
+                    <h1 class="profile__title"></h1>
                     <button type="button" class="profile__button-pen" value="" aria-label="Редактировать"></button>
                 </div>
-                <p class="profile__text">Исследователь океана</p>
+                <p class="profile__text"></p>
             </div>
             <button type="button" class="profile__button-add" aria-label="Добавить" value=""></button>
         </section>
@@ -38,7 +40,10 @@
                 <img src="#" alt="Карточка с Фото" class="element__img">
                 <div class="element__container">
                     <h2 class="element__text"></h2>
-                    <button type="button" class="element__heart"></button>
+                    <div class="element__container-likes">
+                        <button type="button" class="element__heart"></button>
+                        <span class="element__like-count"></span>
+                    </div>
                 </div>
             </article>
         </template>
@@ -67,24 +72,24 @@
             <form class="form form_popup_profile" name="form" novalidate>
 
                 <input 
-                type="text"
-                id="title-profile"
-                name="title"
+                type="text" 
+                id="title-profile" 
+                name="title" 
                 class="form__text form__text_type_title"
-                placeholder="Введите имя и фамилию"
-                minlength="2"
-                maxlength="40"
+                placeholder="Введите имя и фамилию" 
+                minlength="2" 
+                maxlength="40" 
                 required>
                 <span class="form__text-error title-profile-error"></span>
 
                 <input 
-                type="text"
-                id="description-profile"
+                type="text" 
+                id="description-profile" 
                 name="description"
-                class="form__text form__text_type_description"
+                class="form__text form__text_type_description" 
                 placeholder="О себе" 
                 minlength="2" 
-                maxlength="200" 
+                maxlength="200"
                 required>
                 <span class="form__text-error description-profile-error"></span>
 
@@ -102,25 +107,57 @@
             <form class="form form_add_img" name="form_add" novalidate>
                 <input 
                 type="text" 
-                id="title"
+                id="title" 
                 name="title" 
-                class="form__text form__text_type_add-name" 
-                placeholder="Название"
-                minlength="2"
-                maxlength="30"
+                class="form__text form__text_type_add-name"
+                placeholder="Название" 
+                minlength="2" 
+                maxlength="30" 
                 required>
                 <span class="form__text-error title-error"></span>
 
                 <input 
                 type="url" 
-                id="link"
+                id="link" 
                 name="link" 
                 class="form__text form__text_type_link"
-                placeholder="Ссылка на картинку"
+                placeholder="Ссылка на картинку" 
                 required>
                 <span class="form__text-error link-error"></span>
 
                 <button type="submit" class="form__button" value="Создать">Создать</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup-avatar-pen">
+        <div class="popup__container">
+            <button class="popup__close-img" id="popup-close-img" type="button" value=""
+                aria-label="Закрыть попап"></button>
+            <h2 class="popup__title">Обновить аватар</h2>
+            <form class="form" id="formAvatar" name="formAvatar" novalidate>
+
+                <input 
+                type="url" 
+                id="avatar" 
+                name="avatar" 
+                class="form__text form__text_type_link"
+                placeholder="Ссылка на картинку" 
+                required>
+                <span class="form__text-error avatar-error"></span>
+
+                <button type="submit" class="form__button" value="Сохранить">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup-delete-card">
+        <div class="popup__container">
+            <button class="popup__close-img" id="popup-close-img" type="button" value=""
+                aria-label="Закрыть попап"></button>
+            <h2 class="popup__title">Вы уверены?</h2>
+            <form class="form form_add_img" name="formDeleteCard" novalidate>
+                <button type="submit" class="form__button" value="Создать">Да</button>
             </form>
         </div>
     </div>

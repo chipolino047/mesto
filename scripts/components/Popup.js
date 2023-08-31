@@ -2,6 +2,7 @@ export default class Popup {
     constructor(popupSelector) {
         this._popup = document.querySelector(popupSelector);
         this._popupButtonClose = this._popup.querySelector('.popup__close-img');
+        this._form = this._popup.querySelector('.form');
     }
 
     open() {

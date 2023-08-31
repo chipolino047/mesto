@@ -10,7 +10,10 @@ export {
   config,
   configInfo,
   formPopupProfile,
-  formAddCards
+  formAddCards,
+  popupAvatarSelector,
+  popupDeleteSelector,
+  avatarElement
 }
 
 const initialCards = [
@@ -44,12 +47,15 @@ const buttonPopupProfile = document.querySelector('.profile__button-pen');
 const buttonAddImg = document.querySelector('.profile__button-add');
 const formPopupProfile = document.querySelector('.form_popup_profile');
 const formAddCards = document.querySelector('.form_add_img');
+const avatarElement = document.querySelector('.profile__avatar-overlay');
 
 const templateElement = '#cards';
 const popupFigure = '.popup_img';
-const sectionElementSelector = '.elements'
-const profilePopupSelector = '.popup-profile'
-const popupAddCardSelector = '.popup_add_img'
+const sectionElementSelector = '.elements';
+const profilePopupSelector = '.popup-profile';
+const popupAddCardSelector = '.popup_add_img';
+const popupAvatarSelector = '.popup-avatar-pen';
+const popupDeleteSelector = '.popup-delete-card';
 
 const config = {
   formSelector: '.form',
@@ -62,5 +68,6 @@ const config = {
 
 const configInfo = {
   profileName: '.profile__title',
-  profileTextInfo: '.profile__text'
+  profileTextInfo: '.profile__text',
+  profileAvatar: '.profile__avatar'
 }
