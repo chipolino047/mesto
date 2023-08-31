@@ -13,7 +13,8 @@ export {
   formAddCards,
   popupAvatarSelector,
   popupDeleteSelector,
-  avatarElement
+  avatarElement,
+  avatarForm
 }
 
 const initialCards = [
@@ -48,6 +49,7 @@ const buttonAddImg = document.querySelector('.profile__button-add');
 const formPopupProfile = document.querySelector('.form_popup_profile');
 const formAddCards = document.querySelector('.form_add_img');
 const avatarElement = document.querySelector('.profile__avatar-overlay');
+const avatarForm = document.querySelector('#formAvatar');
 
 const templateElement = '#cards';
 const popupFigure = '.popup_img';

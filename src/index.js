@@ -21,7 +21,8 @@ import {
   formAddCards,
   popupAvatarSelector,
   popupDeleteSelector,
-  avatarElement
+  avatarElement,
+  avatarForm
 } from '../scripts/utils/constants.js'
 import '../pages/index.css'
 
@@ -78,6 +79,9 @@ const popupAvatar = new PopupWidthForm(popupAvatarSelector, (data) => {
   popupAvatar.close()
 })
 
+const FormValidatorAvatar = new FormValidator(config, avatarForm)
+FormValidatorAvatar.enableValidation()
+
 const formValidatorProfile = new FormValidator(config, formPopupProfile)
 formValidatorProfile.enableValidation()
 
@@ -128,12 +132,11 @@ buttonAddImg.addEventListener('click', () => {
   formValidatorAddCard.resetError();
 });
 
-// const FormValidatorAvatar = FormValidator(config, document.querySelector('#formAvatar'))
-// FormValidatorAvatar.enableValidation()
+
 
 //Решить вопрос с валидацией формы. Если раскоментировать то будет ошибка
 avatarElement.addEventListener('click', () => {
-  // FormValidatorAvatar.resetError();
+  FormValidatorAvatar.resetError();
   popupAvatar.open();
 })
 
