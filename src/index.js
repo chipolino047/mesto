@@ -128,8 +128,8 @@ buttonAddImg.addEventListener('click', () => {
   formValidatorAddCard.resetError();
 });
 
-const FormValidatorAvatar = FormValidator(config, document.querySelector('#formAvatar'))
-FormValidatorAvatar.enableValidation()
+// const FormValidatorAvatar = FormValidator(config, document.querySelector('#formAvatar'))
+// FormValidatorAvatar.enableValidation()
 
 //Решить вопрос с валидацией формы. Если раскоментировать то будет ошибка
 avatarElement.addEventListener('click', () => {
