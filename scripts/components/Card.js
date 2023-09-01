@@ -65,8 +65,8 @@ class Card {
   }
 
   removeCard() {
-    this._deleteElement.remove()
-    this._deleteElement = null;
+    this._getElement.remove()
+    this._getElement = null;
   }
 
   //Клик на картинку увеличит её
