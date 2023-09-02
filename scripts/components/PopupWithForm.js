@@ -9,7 +9,7 @@ export default class PopupWidthForm extends Popup {
         this._submitButton = this._form.querySelector('.form__button')
         this._defaultButtonText = this._submitButton.textContent;
     }
-    
+
     _getInputValue() {
         this._values = {};
         this._inputList.forEach(input => {
@@ -24,16 +24,20 @@ export default class PopupWidthForm extends Popup {
         })
     }
 
+    changeButtonText() {
+        this._submitButton.textContent = `${this._submitButton.textContent}...`
+    }
+
     setEventListeners() {
         super.setEventListeners();
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this._submitButton.textContent = `${this._submitButton.textContent}...`
+            this.changeButtonText();
             this._submitFunction(this._getInputValue())
         })
     }
 
-    setupDefaultText() {
+    renderLoading() {
         this._submitButton.textContent = this._defaultButtonText
     }
 

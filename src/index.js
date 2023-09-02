@@ -3,7 +3,7 @@ import { FormValidator } from '../scripts/components/FormValidator.js'
 import PopupWidthImage from '../scripts/components/PopupWithImage.js';
 import Section from '../scripts/components/Section.js';
 import UserInfo from '../scripts/components/UserInfo.js';
-import PopupWidthForm from '../scripts/components/PopupWidthForm.js';
+import PopupWidthForm from '../scripts/components/PopupWithForm.js';
 import PopupDeleteCard from '../scripts/components/PopupDeleteCard.js';
 import Api from '../scripts/components/Api.js';
 import {
@@ -26,6 +26,8 @@ import {
 } from '../scripts/utils/constants.js'
 import '../pages/index.css'
 
+let userId = '';
+
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-73',
   headers: {
@@ -42,45 +44,44 @@ const deletePopupCard = new PopupDeleteCard(popupDeleteSelector, ({card, cardId}
   api.deleteCard(cardId)
     .then(() => {
       card.removeCard()
+      deletePopupCard.close()
     })
     .catch(error => console.log(`Ошибка при удалении карточки ${error}`))
     .finally()
-  deletePopupCard.close()
 })
 
 const profilePopup = new PopupWidthForm(profilePopupSelector, (data) => {
   api.setUserInfo(data)
     .then(res => {
       userInfo.setUserInfo({ title: res.name, description: res.about, avatar: res.avatar });
+      profilePopup.close();
     })
     .catch(error => console.log(`Ошибка при редактировании профиля ${error}`))
-    .finally(() => profilePopup.setupDefaultText())
-  profilePopup.close();
+    .finally(() => profilePopup.renderLoading())
 })
 
 const popupAddCard = new PopupWidthForm(popupAddCardSelector, (data) => {
-  Promise.all([api.getInfo(), api.addCard(data)])
-    .then(([dataUser, dataCard]) => {
-      dataCard.myId = dataUser._id;
+  api.addCard(data)
+    .then((dataCard) => {
       section.addItem(createNewCard(dataCard))
       popupAddCard.close()
     })
     .catch(error => console.log(`Ошибка при создании карточки ${error}`))
-    .finally(() => popupAddCard.setupDefaultText())
+    .finally(() => popupAddCard.renderLoading())
 })
 
 const popupAvatar = new PopupWidthForm(popupAvatarSelector, (data) => {
   api.setNewAvatar(data)
   .then(res => {
     userInfo.setUserInfo({ title: res.name, description: res.about, avatar: res.avatar })
+    popupAvatar.close()
   })
   .catch(error => console.log(`Ошибка при изменении аватара ${error}`))
-  .finally(() => popupAvatar.setupDefaultText())
-  popupAvatar.close()
+  .finally(() => popupAvatar.renderLoading())
 })
 
-const FormValidatorAvatar = new FormValidator(config, avatarForm)
-FormValidatorAvatar.enableValidation()
+const validatorAvatarForm = new FormValidator(config, avatarForm)
+validatorAvatarForm.enableValidation()
 
 const formValidatorProfile = new FormValidator(config, formPopupProfile)
 formValidatorProfile.enableValidation()
@@ -103,15 +104,15 @@ function createNewCard(element) {
         })
         .catch(error => console.log(`Ошибка при добавлении лайка ${error}`))
     }
-  });
+  }, userId);
   return card.createCard()
 }
 
-const section = new Section({
-  items: initialCards,
-  renderer: (element) => {
-    section.addItemAppend(createNewCard(element))
-  }
+const section = new Section({ 
+  items: initialCards, 
+  renderer: (element, userId) => { 
+    section.addItemAppend(createNewCard(element, userId))
+  } 
 }, sectionElementSelector);
 
 popupImage.setEventListeners();
@@ -132,18 +133,15 @@ buttonAddImg.addEventListener('click', () => {
   formValidatorAddCard.resetError();
 });
 
-
-
-//Решить вопрос с валидацией формы. Если раскоментировать то будет ошибка
 avatarElement.addEventListener('click', () => {
-  FormValidatorAvatar.resetError();
+  validatorAvatarForm.resetError();
   popupAvatar.open();
 })
 
 Promise.all([api.getInfo(), api.getCards()])
   .then(([dataUser, dataCard]) => {
-    dataCard.forEach(element => { element.myId = dataUser._id });
+    userId = dataUser._id;
     userInfo.setUserInfo({ title: dataUser.name, description: dataUser.about, avatar: dataUser.avatar })
-    section.renderItems(dataCard);
+    section.renderItems(dataCard, userId);
   })
   .catch(error => console.log(`Ошибка при редактировании профиля ${error}`))

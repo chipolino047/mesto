@@ -5,9 +5,9 @@ export default class Section {
         this.renderer = renderer;
     }
 
-    renderItems(dataCard) {
+    renderItems(dataCard, userId) {
         dataCard.forEach(element => {
-            this.renderer(element)
+            this.renderer(element, userId)
         });
     }
 

@@ -2,12 +2,13 @@ export {Card}
 
 class Card {
   //Конструктор определяет данные карточки 
-  constructor(dataCard, templateElement, openImgPopup, openDeletePopup, changeLike) {
-    // console.log(dataCard)
+  constructor(dataCard, templateElement, openImgPopup, openDeletePopup, changeLike, userId) {
+    // console.log(userId)
+    this._userId = userId;
     this._dataCard = dataCard;
     this._link = dataCard.link;
     this._name = dataCard.name;
-    this._myId = dataCard.myId;
+    this._myId = userId;
     this._likes = dataCard.likes;
     this._likesLength = dataCard.likes.length;
     this._ownerId = dataCard.owner._id;
